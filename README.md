@@ -7,5 +7,5 @@ Personal executive portfolio for Mohamed Yehia.
 Live website: https://mohamedyehia.vercel.app/
 
 ## Deployment
-This repository is intended to be connected directly to Vercel.  
+This repository is connected directly to Vercel for automatic deployments.  
 Production branch: `main`
