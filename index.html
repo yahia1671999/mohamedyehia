@@ -18,6 +18,8 @@
 <meta content="Leading complex ERP and digital transformation programs from strategy and scope through governance, delivery and go-live." name="twitter:description"/>
 <meta content="https://mohamedyehia.vercel.app/assets/social-preview.jpg" name="twitter:image"/>
 <meta content="#07111e" name="theme-color"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="Mohamed Yehia" name="author"/>
 <link href="assets/favicon.png" rel="icon" type="image/png"/>
 <link href="assets/favicon-192.png" rel="apple-touch-icon"/>
 <link href="site.webmanifest" rel="manifest"/>
@@ -30,6 +32,14 @@
   --shadow:0 24px 80px rgba(0,0,0,.34);--r:24px;
 }
 *{box-sizing:border-box}
+.skip-link{position:absolute;left:16px;top:-60px;z-index:999;padding:10px 14px;border-radius:10px;background:#fff;color:#07111e;font-weight:800}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.btn,.social,.pm-card,.program,.case,.deliverable,.cap,.insight{transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.btn:hover,.social:hover{transform:translateY(-2px)}
+.pm-card:hover,.deliverable:hover,.cap:hover,.insight:hover{border-color:rgba(94,167,255,.32)}
+html[dir="ltr"] .domain ul{padding:0 0 0 18px}
+html[dir="rtl"] .domain ul{padding:0 18px 0 0}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text);line-height:1.7;background:
 radial-gradient(circle at 4% 2%,rgba(94,167,255,.14),transparent 23%),
@@ -78,7 +88,7 @@ section{padding:72px 0}.section-head{display:grid;grid-template-columns:.82fr 1.
 .scope-chip strong{font-size:46px;line-height:1}.scope-chip span{color:var(--muted);font-size:13px;margin-top:6px}
 .arch{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .domain{padding:19px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-.domain h4{margin:0 0 11px;font-size:17px;color:#e8f2fb}.domain ul{margin:0;padding:0 18px 0 0}.domain li{margin:7px 0;color:#c8d4e1;font-size:13px}
+.domain h4{margin:0 0 11px;font-size:17px;color:#e8f2fb}.domain ul{margin:0}.domain li{margin:7px 0;color:#c8d4e1;font-size:13px}
 .pm-responsibility{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.resp{padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.028);font-size:13px;color:#d6e1ec}
 
 .case-list{display:grid;gap:18px}.case{display:grid;grid-template-columns:.36fr 1.64fr;gap:22px;padding:28px;border-radius:26px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
@@ -110,7 +120,8 @@ footer{text-align:center;padding:30px 0 46px;color:var(--muted);font-size:13px}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Mohamed Yehia", "jobTitle": "Project Manager, Operations Manager & Digital Transformation Leader", "sameAs": ["https://www.linkedin.com/in/mohamed-yahia-7007b8290/", "https://www.facebook.com/Mohamed99AI", "https://www.instagram.com/mohameed.yahia1/"], "email": "mailto:mohameed.yahia1@gmail.com", "knowsAbout": ["Project Management", "Program Management", "Digital Transformation", "Microsoft Dynamics 365 Finance & Operations", "ERP", "Business Analysis", "AI Automation"], "url": "https://mohamedyehia.vercel.app/", "image": "https://mohamedyehia.vercel.app/assets/mohamed-yehia-hero.jpg"}</script>
 <link href="https://mohamedyehia.vercel.app/" rel="canonical"/><meta content="https://mohamedyehia.vercel.app/" property="og:url"/></head>
 <body>
-<nav class="nav">
+<a class="skip-link" href="#top">Skip to content</a>
+<nav aria-label="Primary navigation" class="nav">
 <div class="container nav-inner">
 <a class="brand" href="#top">Mohamed <span>Yehia</span></a>
 <button aria-controls="menu" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menuToggle">Menu</button>
@@ -120,7 +131,7 @@ footer{text-align:center;padding:30px 0 46px;color:var(--muted);font-size:13px}
 <a data-ar="البحر الأحمر" data-en="Flagship Program" href="#redsea">Flagship Program</a>
 <a data-ar="دراسات حالة" data-en="Case Studies" href="#cases">Case Studies</a>
 <a data-ar="تواصل" data-en="Contact" href="#contact">Contact</a>
-<button aria-label="Switch language" class="lang" id="langBtn">AR</button>
+<button aria-label="Switch to Arabic" class="lang" id="langBtn">AR</button>
 </div>
 </div>
 </nav>
@@ -389,7 +400,9 @@ document.getElementById('langBtn').addEventListener('click',()=>{
   lang=lang==='en'?'ar':'en';
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-  document.getElementById('langBtn').textContent=lang==='en'?'AR':'EN';
+  const langBtn=document.getElementById('langBtn');
+  langBtn.textContent=lang==='en'?'AR':'EN';
+  langBtn.setAttribute('aria-label',lang==='en'?'Switch to Arabic':'Switch to English');
   document.querySelectorAll('[data-ar][data-en]').forEach(el=>el.textContent=el.dataset[lang]);
 });
 const menu=document.getElementById('menu');
@@ -398,7 +411,17 @@ menuToggle.addEventListener('click',()=>{
   menu.classList.toggle('open');
   menuToggle.setAttribute('aria-expanded', menu.classList.contains('open') ? 'true' : 'false');
 });
-document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>{
+  menu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+}));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && menu.classList.contains('open')){
+    menu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.focus();
+  }
+});
 </script>
 </body>
 </html>
