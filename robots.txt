@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohamedyehia.vercel.app/sitemap.xml

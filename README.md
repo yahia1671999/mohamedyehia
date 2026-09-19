@@ -1,3 +1,11 @@
-# Mohamed Yehia Portfolio
+# Mohamed Yehia — Executive Portfolio
 
-Executive personal website for Mohamed Yehia — Project Manager, Operations Manager, ERP & Digital Transformation Leader.
+Personal executive portfolio for Mohamed Yehia.
+
+**Positioning:** Project Manager · Operations Manager · ERP & Digital Transformation Leader
+
+Live website: https://mohamedyehia.vercel.app/
+
+## Deployment
+This repository is intended to be connected directly to Vercel.  
+Production branch: `main`
